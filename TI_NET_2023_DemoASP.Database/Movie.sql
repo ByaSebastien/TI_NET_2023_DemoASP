@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[Movie]
+(
+	Movie_Id INT IDENTITY,
+	Title NVARCHAR(50) NOT NULL,
+	Description NVARCHAR(MAX) NULL,
+	Image NVARCHAR(MAX) NULL,
+	CONSTRAINT PK_Movie PRIMARY KEY (Movie_id),
+	CONSTRAINT CK_Movie_Title CHECK (TRIM(Title) != '')
+)
