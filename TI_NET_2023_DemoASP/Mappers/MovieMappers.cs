@@ -9,5 +9,23 @@ namespace TI_NET_2023_DemoASP.Mappers
         {
             return new MovieShortDTO(movie.Id, movie.Title);
         }
+
+        public static Movie ToEntity(this MovieFormDTO movie)
+        {
+            return new Movie()
+            {
+                Title = movie.Title,
+                Description = movie.Description,
+            };
+        }
+
+        public static MovieFormDTO toForm(this Movie movie)
+        {
+            return new MovieFormDTO()
+            {
+                Title = movie.Title,
+                Description = movie.Description,
+            };
+        }
     }
 }

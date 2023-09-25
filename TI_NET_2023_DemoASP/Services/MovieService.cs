@@ -12,9 +12,33 @@ namespace TI_NET_2023_DemoASP.Services
             _movieRepository = movieRepository;
         }
 
+        public Movie Add(Movie movie)
+        {
+            if (movie.Title.Trim() == "")
+            {
+                throw new Exception("Title is required");
+            }
+            return _movieRepository.Create(movie);
+        }
+
         public IEnumerable<Movie> GetAll()
         {
             return _movieRepository.ReadAll();
+        }
+
+        public Movie GetOne(int id)
+        {
+            return _movieRepository.ReadOne(id);
+        }
+
+        public bool Update(int id, Movie movie)
+        {
+            return _movieRepository.Update(id, movie);
+        }
+
+        public bool Delete(int id)
+        {
+            return _movieRepository.Delete(id);
         }
     }
 }
